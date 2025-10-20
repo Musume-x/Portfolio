@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Espresso </title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #fff;
+    }
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #000000;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-decoration: none;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .container {
+        text-align: center;
+    }
+    .login-box {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        max-width: 400px;
+        margin: 2rem auto;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .login-box button {
+        background-color: #00754a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: 10px 0;
+        font-size: 0.95rem;
+    }
+    .checkbox-container a {
+        display: inline;
+        margin-left: 5px;
+    }
+    .rewards {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .rewards button {
+        background: none;
+        border: 1px solid #00754a;
+        color: #00754a;
+        padding: 5px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+<div class="logo">E S P R E S S O</div>
+
+<div class="container">
+    <div class="login-box">
+        <h2>Sign in or create an account</h2>
+        <form action="home.html" method="get">
+        <input type="text" placeholder="* Username or email address" required>
+        <input type="password" placeholder="* Password" required>
+        <div class="checkbox-container">
+            <input type="checkbox" id="keepSignedIn">
+            <label for="keepSignedIn">Keep me signed in.</label>
+        </div>
+        <button type="submit">Sign in</button>
+        </form>
+    </div>
+    <div class="rewards">
+        <strong>JOIN ESPRESSO® REWARDS</strong>
+        <p>As a member, start earning free food and drinks, unlock our best offers and celebrate your birthday with a treat from us. Best of all, it's free to join.</p>
+        <button>Join now</button>
+    </div>
+</div>
+</body>
+</html>

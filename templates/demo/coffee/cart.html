@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Summary | Espresso Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+    z-index: 1000;
+    background: rgba(0, 0, 0, 1.8);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+}
+
+header .brand{
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header .navigation{
+    position: relative;
+}
+
+header .navigation .navigation-items a{
+position: relative;
+color: #ffffff;
+font-size: 1em;
+font-weight: 500;
+text-decoration: none;
+margin-left: 30px;
+transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: chocolate;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+    width: 100%;
+}
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      background-color: #fef9f6;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #6b3e2e;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid #eee0d8;
+    }
+
+    th {
+      background-color: chocolate;
+      color: white;
+    }
+
+    tfoot td {
+      font-weight: bold;
+      background-color: #f8eae3;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: chocolate;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #4a2e20;
+    }
+
+    footer {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="Home.html" class="brand">Espresso</a>
+    <div class="navigation">
+        <div class="navigation-items">
+            <a href="Home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="product.html">Products</a>
+            <a href="login.html">Sign in</a>
+        </div>
+    </div>
+</header>
+
+  <main>
+    <h1>Order Summary</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Coffee</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Espresso</td>
+          <td>Small</td>
+          <td>2</td>
+          <td>₱100.00</td>
+          <td>₱200.00</td>
+        </tr>
+        <tr>
+          <td>Cappuccino</td>
+          <td>Medium</td>
+          <td>1</td>
+          <td>₱85.50</td>
+          <td>₱85.50</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="text-align:right;">Grand Total</td>
+          <td>₱285.50</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <a href="product.html" class="back-button">← Back to Menu</a>
+  </main>
+
+  <footer>
+    <div style="max-width: 1000px; margin: auto;">
+      <h3>Contact Us</h3>
+      <p>Email: Espresso@gmail.com | Phone: 0910847519</p>
+      <p>Address: Vito, Minglanilla, Cebu</p>
+      <div style="margin: 20px 0;">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+      <p style="font-size: 14px;">&copy; 2025 Espresso Coffee Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

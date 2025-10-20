@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Khim David Delicano</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">KD</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link active">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">My Projects</h1>
+                <p class="page-subtitle">A showcase of my recent work and side projects</p>
+            </div>
+        </div>
+
+        <section class="projects-section">
+            <div class="container">
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Gaming Projects</button> 
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="static/images/coffee-website.jpg" alt="Cafe shop">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link">Live Demo</a>
+                                    <a href="https://github.com/Musume-x/Coffee-Website" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Espresso Cafe Shop</h3>
+                            <p>a modern coffee shop website using HTML and CSS.
+                                It includes a responsive menu and online ordering system with cart and checkout features.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag"> CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-image">
+                            <img src="static/images/scc-haunted.png" alt="Roblox">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://www.roblox.com/" class="project-link">Roblox</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Haunted School Game (Unfinished)</h3>
+                            <p>Where you play as a student who is trying to escape from a haunted school whose deceased teachers are still roaming the halls.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">3D Modeling</span>
+                                <span class="tech-tag">Animation</span>
+                                <span class="tech-tag">Scripting</span> 
+                                <span class="tech-tag">Game Development</span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

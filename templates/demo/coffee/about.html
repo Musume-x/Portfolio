@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    z-index: 1000;
+    background: rgba(0, 0, 0, 1.8);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+}
+
+header .brand{
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header .navigation{
+    position: relative;
+}
+
+header .navigation .navigation-items a{
+position: relative;
+color: #ffffff;
+font-size: 1em;
+font-weight: 500;
+text-decoration: none;
+margin-left: 30px;
+transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: chocolate;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+    width: 100%;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: center;
+    background-color: #000;
+}
+
+.about-title {
+    font-size: 1.8em;
+    margin-bottom: 100px;
+    color: #fff;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px; 
+    width: 100%;
+}
+
+.about-description {
+    width: 50%;
+    text-align: left;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.btn {
+    text-decoration: none;
+    color: chocolate;
+    font-size: 1.2em;
+    background-color: #000;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    color: #fff;
+    background-color: chocolate;
+    transform: scale(1.1);
+}
+
+.about-img {
+    width: 50%;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    height: 100vh;
+    padding: 0 200px;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.background-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about2 .about-description {
+    position: relative;
+    color: #000;
+    width: 50%;
+    font-size: 1.3em;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.about2 .content {
+    position: relative;
+    z-index: 1;
+    max-width: 60%;
+    font-size: 1.3em;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about2 .btn {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    background-color: chocolate;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.about2 .btn:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+
+
+
+    </style>
+    <header>
+        <a href="Home.html" class="brand">Espresso</a>
+        <div class="navigation">
+            <div class="navigation-items"> 
+                <a href="Home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="product.html">Products</a>
+                <a href="login.html">Sign in</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="about-title">
+            <h1>Passion in Every Cup</h1>
+        </div>
+        <div class="about-content">
+        <div class="about-description">
+            <p>Coffee Espresso, we craft premium coffee using ethically sourced beans and expert brewing techniques. Every cup is made with precision, ensuring bold flavors and a rich aroma in every sip.</p> <br>
+                <p>Beyond great coffee, we take pride in creating a welcoming space for our community. Our shop is a place where friends gather, conversations flow, and every visit feels like home. From our warm hospitality to our expertly crafted drinks, we strive to make every experience memorable.</p>
+                <a href="Home.html" class="btn">Read More</a>
+        </div>
+        <div class="about-img">
+            <img src="Images/card1.jpg" alt="">
+        </div>
+    </div>
+    </section>
+
+    <section class="about2">
+        <div class="background-img">
+            <img src="Images/about-bg.jpg" alt="">
+        </div>
+        <div class="about-description">
+            <p>"At Espresso, every cup tells a story. We are more than just coffee—we are a community that thrives on passion, quality, and connection. From ethically sourced beans to expertly brewed blends, we craft each drink with care. Step into our cozy space, where rich aromas fill the air, and every sip brings comfort. Experience the warmth, the flavor, and the passion behind every pour."</p>
+            <a href="about.html" class="btn">Read More</a>
+        </div>
+    </section>
+    <footer style="background-color: #000000; color: #fff; padding: 30px 0; text-align: center;">
+        <div style="max-width: 1000px; margin: auto;">
+            <h3>Contact Us</h3>
+            <p>Email: Espresso@gmail.com | Phone: 0910847519</p>
+            <p>Address: Vito, Minglanilla, Cebu</p>
+            <div style="margin: 20px 0;">
+            <a href="https://facebook.com" target="_blank" style="margin: 0 10px; color: #fff; text-decoration: none;">
+                Facebook
+            </a>
+            <a href="https://twitter.com" target="_blank" style="margin: 0 10px; color: #fff; text-decoration: none;">
+                Twitter
+            </a>
+            <a href="https://instagram.com" target="_blank" style="margin: 0 10px; color: #fff; text-decoration: none;">
+                Instagram
+            </a>
+            <a href="https://linkedin.com" target="_blank" style="margin: 0 10px; color: #fff; text-decoration: none;">
+                LinkedIn
+            </a>
+            </div>
+        
+            <p style="font-size: 14px;">&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+        </footer>
+    
+</body>
+</html>

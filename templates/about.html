@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Khim David Delicano</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">KD</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">About Me</h1>
+                <p class="page-subtitle">Get to know more about my journey and passion</p>
+            </div>
+        </div>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>My Story</h2>
+                        <p>
+                            I'm a passionate student and aspiring cybersecurity professional with hands-on
+                            experience as a full-stack developer. My journey began with a curiosity about
+                            how websites work, which has grown into a love for crafting elegant, efficient,
+                            and user-friendly applications.
+                        </p>
+                        <p>
+                            I believe in the power of technology to solve real-world problems and improve people's
+                            lives. Whether it's building a responsive web application, optimizing database
+                            performance, or exploring cloud solutions, I approach every project with dedication
+                            and attention to detail.
+                        </p>
+                        <p>
+                            Currently, my foundation is in full-stack development, which has given me a solid
+                            understanding of web technologies, databases, and application architecture.
+                            However, my ultimate goal is to specialize in cybersecurity, where I aim
+                            to protect systems, networks, and data from evolving threats, identify vulnerabilities,
+                            and help organizations strengthen their digital defenses.
+                        </p>
+                        <p>
+                            When I'm not coding, you can find me exploring new technologies, contributing
+                            to open-source projects, or learning about cybersecurity trends and best practices.
+                            I'm always eager to grow and make a meaningful impact in the tech industry.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <img src="static/images/profile.jpg" alt="About Kim Delicano" class="about-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Full-Stack Developer (Student Projects)</h3>
+                            <h4>Self-Learning / Personal Projects</h4>
+                            <span class="timeline-date">2024 - Present</span>
+                            <p>Building small-scale web applications and experimenting with different technologies to strengthen full-stack development skills. Focused on creating responsive, user-friendly projects while learning best practices in coding and project structure.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>3D Modeling & Design</h3>
+                            <h4>Freelance / Personal Projects</h4>
+                            <span class="timeline-date">2023 - Present</span>
+                            <p>Developing 3D models and visual designs for personal projects and creative experiments, enhancing technical and artistic skills.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Cybersecurity & Ethical Hacking</h3>
+                            <h4>Self-Learning / Personal Practice</h4>
+                            <span class="timeline-date">2023 - Present</span>
+                            <p>Gaining foundational knowledge in cybersecurity and ethical hacking, including network security, vulnerability assessment, and safe penetration testing practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <h3>Bachelor of Science in Information Technology (In Progress)</h3>
+                        <h4>St. Cecilia's College (SCC)</h4>
+                        <span class="education-date">2024 - Present</span>
+                        <p>Currently in 2nd year, focusing on IT fundamentals, web development, and cybersecurity.</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Certifications (Planned / In Progress)</h3>
+                        <h4>CompTIA Certification</h4>
+                        <p> Planning to pursue to strengthen knowledge in cybersecurity and IT fundamentals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
