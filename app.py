@@ -33,6 +33,15 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.String(120), nullable=False)
 
+class ContactMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    subject = db.Column(db.String(200), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    read = db.Column(db.Boolean, default=False)
+
 # Simple authentication (hardcoded for single user)
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD_HASH = hashlib.sha256("admin123".encode()).hexdigest()
@@ -85,8 +94,28 @@ def projects():
 def about():
     return render_template('about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        subject = request.form['subject']
+        message = request.form['message']
+        
+        # Create new contact message
+        contact_msg = ContactMessage(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+        
+        db.session.add(contact_msg)
+        db.session.commit()
+        
+        flash('Thank you for your message! I\'ll get back to you soon.', 'success')
+        return redirect(url_for('contact'))
+    
     return render_template('contact.html')
 
 @app.route('/blog')
@@ -128,7 +157,9 @@ def logout():
 @require_auth
 def admin_dashboard():
     blog_posts = BlogPost.query.order_by(BlogPost.created_at.desc()).all()
-    return render_template('admin/dashboard.html', blog_posts=blog_posts)
+    contact_messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).limit(5).all()
+    unread_messages = ContactMessage.query.filter_by(read=False).count()
+    return render_template('admin/dashboard.html', blog_posts=blog_posts, contact_messages=contact_messages, unread_messages=unread_messages)
 
 @app.route('/admin/blog/new', methods=['GET', 'POST'])
 @require_auth
@@ -206,6 +237,30 @@ def delete_blog_post(post_id):
     db.session.commit()
     flash('Blog post deleted successfully!', 'success')
     return redirect(url_for('admin_dashboard'))
+
+@app.route('/admin/messages')
+@require_auth
+def admin_messages():
+    contact_messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
+    return render_template('admin/messages.html', contact_messages=contact_messages)
+
+@app.route('/admin/messages/<int:message_id>/read', methods=['POST'])
+@require_auth
+def mark_message_read(message_id):
+    message = ContactMessage.query.get_or_404(message_id)
+    message.read = True
+    db.session.commit()
+    flash('Message marked as read', 'success')
+    return redirect(url_for('admin_messages'))
+
+@app.route('/admin/messages/<int:message_id>/delete', methods=['POST'])
+@require_auth
+def delete_message(message_id):
+    message = ContactMessage.query.get_or_404(message_id)
+    db.session.delete(message)
+    db.session.commit()
+    flash('Message deleted successfully', 'success')
+    return redirect(url_for('admin_messages'))
 
 # Initialize database
 with app.app_context():

@@ -28,6 +28,36 @@
         {% endwith %}
         
         <div class="admin-content">
+            <!-- Contact Messages Section -->
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2>Contact Messages {% if unread_messages > 0 %}<span class="badge">{{ unread_messages }} unread</span>{% endif %}</h2>
+                    <a href="/admin/messages" class="btn btn-secondary">View All Messages</a>
+                </div>
+                
+                {% if contact_messages %}
+                    <div class="contact-messages-preview">
+                        {% for message in contact_messages %}
+                            <div class="message-item {% if not message.read %}unread{% endif %}">
+                                <div class="message-info">
+                                    <h4>{{ message.subject }}</h4>
+                                    <p class="message-meta">
+                                        From: {{ message.name }} ({{ message.email }}) | 
+                                        {{ message.created_at.strftime('%B %d, %Y at %I:%M %p') }}
+                                        {% if not message.read %}<span class="unread-badge">New</span>{% endif %}
+                                    </p>
+                                    <p class="message-preview">{{ message.message[:100] }}...</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-state">
+                        <p>No contact messages yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+            
             <div class="admin-section">
                 <div class="section-header">
                     <h2>Blog Posts</h2>
