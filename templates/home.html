@@ -33,6 +33,9 @@
                     <a href="/projects" class="nav-link">Projects</a>
                 </li>
                 <li class="nav-item">
+                    <a href="/blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
                     <a href="/contact" class="nav-link">Contact</a>
                 </li>
             </ul>
@@ -108,12 +111,56 @@
                         <div class="skill-tags">
                             <span class="skill-tag">Github</span>   
                             <span class="skill-tag">VS Code</span>  
-                            <span class="skill-tag">Git</span>  
+                            <span class="skill-tag">Git</span> 
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Blender</span>    
+                            <span class="skill-tag">Roblox Studio</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Latest Blog Posts Section -->
+        {% if blog_posts %}
+        <section class="blog-section">
+            <div class="container">
+                <h2 class="section-title">Latest Blog Posts</h2>
+                <div class="blog-posts-preview">
+                    {% for post in blog_posts %}
+                        <div class="blog-post-card">
+                            {% if post.image_filename %}
+                                <div class="post-image">
+                                    <img src="/uploads/{{ post.image_filename }}" alt="{{ post.title }}" class="card-featured-image">
+                                </div>
+                            {% endif %}
+                            
+                            <div class="post-header">
+                                <h3 class="post-title">
+                                    <a href="/blog/{{ post.id }}">{{ post.title }}</a>
+                                </h3>
+                                <p class="post-date">{{ post.created_at.strftime('%B %d, %Y') }}</p>
+                            </div>
+                            
+                            {% if post.excerpt %}
+                                <div class="post-excerpt">
+                                    {{ post.excerpt }}
+                                </div>
+                            {% endif %}
+                            
+                            <div class="post-footer">
+                                <a href="/blog/{{ post.id }}" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="blog-section-footer">
+                    <a href="/blog" class="btn btn-secondary">View All Posts</a>
+                </div>
+            </div>
+        </section>
+        {% endif %}
     </main>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

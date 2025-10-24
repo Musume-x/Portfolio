@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Kim Delicano</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">KD</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/blog" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1 class="blog-title">My Blog</h1>
+                <p class="blog-subtitle">Thoughts, insights, and updates from my journey as a developer</p>
+            </div>
+            
+            {% if blog_posts %}
+                <div class="blog-posts">
+                    {% for post in blog_posts %}
+                        <article class="blog-post-preview">
+                            {% if post.image_filename %}
+                                <div class="post-image">
+                                    <img src="/uploads/{{ post.image_filename }}" alt="{{ post.title }}" class="featured-image">
+                                </div>
+                            {% endif %}
+                            
+                            <div class="post-header">
+                                <h2 class="post-title">
+                                    <a href="/blog/{{ post.id }}">{{ post.title }}</a>
+                                </h2>
+                                <p class="post-date">{{ post.created_at.strftime('%B %d, %Y') }}</p>
+                            </div>
+                            
+                            {% if post.excerpt %}
+                                <div class="post-excerpt">
+                                    {{ post.excerpt }}
+                                </div>
+                            {% endif %}
+                            
+                            <div class="post-footer">
+                                <a href="/blog/{{ post.id }}" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-blog">
+                    <p>No blog posts yet. Check back soon for updates!</p>
+                </div>
+            {% endif %}
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

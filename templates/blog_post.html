@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} - Kim Delicano</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">KD</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/blog" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="blog-post-container">
+            <article class="blog-post-full">
+                {% if post.image_filename %}
+                    <div class="post-featured-image">
+                        <img src="/uploads/{{ post.image_filename }}" alt="{{ post.title }}" class="main-featured-image">
+                    </div>
+                {% endif %}
+                
+                <div class="post-header">
+                    <h1 class="post-title">{{ post.title }}</h1>
+                    <div class="post-meta">
+                        <span class="post-date">{{ post.created_at.strftime('%B %d, %Y') }}</span>
+                        {% if post.updated_at != post.created_at %}
+                            <span class="post-updated">Updated: {{ post.updated_at.strftime('%B %d, %Y') }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="post-content">
+                    {{ post.content | replace('\n', '<br>') | safe }}
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog" class="back-to-blog">← Back to Blog</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
