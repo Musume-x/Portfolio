@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from datetime import datetime
+from sqlalchemy import inspect, text
 import os
 import hashlib
 import secrets
@@ -265,13 +266,13 @@ def delete_message(message_id):
 # Initialize database
 with app.app_context():
     db.create_all()
-    
-    # Add image_filename column if it doesn't exist
-    try:
-        db.engine.execute("ALTER TABLE blog_post ADD COLUMN image_filename VARCHAR(255)")
-    except Exception:
-        # Column already exists, ignore the error
-        pass
+
+    inspector = inspect(db.engine)
+    if 'blog_post' in inspector.get_table_names():
+        columns = [col['name'] for col in inspector.get_columns('blog_post')]
+        if 'image_filename' not in columns:
+            with db.engine.begin() as conn:
+                conn.execute(text('ALTER TABLE blog_post ADD COLUMN image_filename VARCHAR(255)'))
 
 if __name__ == '__main__':
     app.run(debug=True)
